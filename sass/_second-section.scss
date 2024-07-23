@@ -17,116 +17,112 @@
 		margin-bottom: 48px;
 		line-height: 1.27;
 	}
-}
 
-.slider {
-	background: #191a23;
-	padding: 48px 0;
-	border-radius: 45px;
-	margin-bottom: 217px;
-	position: relative;
+	& > .slider {
+		background: #191a23;
+		padding: 48px 0 94px;
+		border-radius: 45px;
+		margin-bottom: 217px;
 
-	& > div {
-		overflow: hidden;
+		.slick-slide {
+			padding: 12px;
+			background-color: white;
+			margin: 0 24px;
+			text-align: center;
+			border-radius: 12px;
+
+			& > img {
+				display: block;
+				width: 100%;
+				margin-bottom: 12px;
+				border-radius: 12px;
+			}
+
+			& > p {
+				margin-bottom: 24px;
+				font-size: 18px;
+				line-height: 1.5;
+			}
+
+			& > button {
+				background: #00d9a6;
+				font-size: 24px;
+				line-height: 1.5;
+				border: none;
+				border-radius: 12px;
+				padding: 12px 0;
+				width: 100%;
+				font-weight: 500;
+			}
+		}
 	}
 }
 
-.slides {
-	display: flex;
-	transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-	min-width: 33.33%;
-	box-sizing: border-box;
-	text-align: center;
-	background: #f2f2f2;
-	padding: 12px;
-	font-size: 24px;
-	border-radius: 12px;
-	margin: 0 24px;
-
-	& > img {
-		margin-bottom: 12px;
-		display: block;
-		max-width: 100%;
-		border-radius: 12px;
-	}
-
-	& > p {
-		margin-bottom: 24px;
-		font-size: 18px;
-		line-height: 1.5;
-	}
-
-	& > button {
-		background: #00d9a6;
-		font-size: 24px;
-		line-height: 1.5;
-		border: none;
-		border-radius: 12px;
-		padding: 12px 0;
-		width: 100%;
-	}
-}
-
-.prev,
-.next {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
+.slick-prev,
+.slick-next {
+	box-shadow: 0px 1px 10px 0px #0000001a;
 	background-color: white;
-	color: white;
-	border: none;
-	cursor: pointer;
-	border-radius: 50%;
-	font-size: 25px;
-	color: orange;
 	height: 88px;
 	width: 88px;
-	border: 1px solid #ffffff;
-	box-shadow: 0px 1px 10px 0px #0000001a;
-
-	&:active {
+	border-radius: 45px;
+	z-index: 1;
+	&:hover,
+	&:focus {
 		background: #ff9600;
-		border: none;
-		color: #000;
+
+		&::before {
+			color: #000;
+		}
+	}
+	&::before {
+		content: "\261C";
+		font-size: 40px;
+		color: #ff9600;
+		line-height: 0.5;
 	}
 }
 
-.prev {
-	left: -50px;
+.slick-prev {
+	left: -44px;
+	&::before {
+		content: "\276E";
+	}
 }
-
-.next {
+.slick-next {
 	right: -44px;
+	&::before {
+		content: "\276F";
+	}
 }
 
-.indicators {
-	display: flex;
-	justify-content: center;
-	margin-top: 20px;
-}
-
-.indicator {
-	width: 10px;
-	height: 10px;
-	background-color: #bbb;
-	// border-radius: 50%;
-	clip-path: polygon(
-		50% 15%,
-		100% 0,
-		85% 50%,
-		100% 100%,
-		50% 85%,
-		0 100%,
-		15% 50%,
-		0 0
-	);
-	margin: 0 5px;
-	cursor: pointer;
-}
-
-.indicator.active {
-	background: #ff9600;
+.slick-dots {
+	bottom: 52px;
+	& > li {
+		margin: 0 12px;
+		width: 14px;
+		height: 14px;
+		button {
+			background-color: white;
+			clip-path: polygon(
+				50% 15%,
+				100% 0,
+				85% 50%,
+				100% 100%,
+				50% 85%,
+				0 100%,
+				15% 50%,
+				0 0
+			);
+			width: inherit;
+			height: inherit;
+			&::before {
+				width: inherit;
+				height: inherit;
+				content: "";
+			}
+		}
+		&.slick-active button:before {
+			background-color: #ff9600;
+		}
+	}
 }
